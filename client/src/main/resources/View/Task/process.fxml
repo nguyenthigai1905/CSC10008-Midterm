@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmt.client.Controller.Task.ProcessController">
+    <children>
+        <TableView fx:id="processTable" layoutX="31.0" layoutY="25.0" prefHeight="332.0" prefWidth="442.0" tableMenuButtonVisible="true" />
+        <Button layoutX="31.0" layoutY="380.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="176.0" text="Tắt Process" wrapText="true">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

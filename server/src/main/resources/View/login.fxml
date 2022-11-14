@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="163.0" prefWidth="393.0" style="-fx-background-radius: 10; -fx-background-color: #ffffff; -fx-border-radius: 10; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmt.server.Controller.LoginController">
+    <children>
+        <TextField fx:id="tfPort" alignment="CENTER" layoutX="97.0" layoutY="78.0" onKeyPressed="#pressEnter" prefHeight="58.0" prefWidth="266.0" promptText="Ấn Enter để tiếp tục" style="-fx-background-color: #ededed;">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </TextField>
+        <Label alignment="CENTER" layoutX="69.0" layoutY="27.0" prefHeight="37.0" prefWidth="322.0" text="Hãy nhập số port vào" textAlignment="CENTER" textFill="#c44e4e">
+            <font>
+                <Font name="Arial Bold" size="20.0" />
+            </font>
+        </Label>
+      <ImageView fitHeight="58.0" fitWidth="55.0" layoutX="14.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/152532.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

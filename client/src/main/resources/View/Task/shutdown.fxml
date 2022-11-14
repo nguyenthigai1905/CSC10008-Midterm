@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="436.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmt.client.Controller.Task.ShutdownController">
+    <children>
+        <JFXButton alignment="BASELINE_LEFT" layoutX="148.0" layoutY="257.0" onAction="#shutDown" prefHeight="50.0" prefWidth="175.0" styleClass="sidebarItem" text="Shut down" textFill="#674747">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="37.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Image/toggl_app_64px.png" />
+               </image></ImageView>
+            </graphic>
+        </JFXButton>
+        <Label layoutX="54.0" layoutY="127.0" prefHeight="40.0" prefWidth="389.0" text="Nhập vào thời gian tắt máy (đơn vị giây):" textFill="#674747">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="timeShutdown" alignment="CENTER" layoutX="89.0" layoutY="192.0" prefHeight="47.0" prefWidth="319.0" promptText="Mặc định là 0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+    </children>
+
+</AnchorPane>

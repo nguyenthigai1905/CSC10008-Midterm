@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" blendMode="MULTIPLY" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmt.client.Controller.LoginController">
+    <children>
+        <Label layoutX="23.0" layoutY="39.0" text="Nhập Server IP:" textFill="#6e4646">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="15.0" layoutY="91.0" text="Nhập Server Port:" textFill="#6e4646">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textName" alignment="CENTER" layoutX="179.0" layoutY="36.0" prefHeight="31.0" prefWidth="197.0">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="textPort" alignment="CENTER" layoutX="178.0" layoutY="85.0" prefHeight="31.0" prefWidth="198.0">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </TextField>
+        <Button fx:id="loginButton" layoutX="159.0" layoutY="142.0" mnemonicParsing="false" onAction="#clickLogin" prefHeight="38.0" prefWidth="82.0" text="Kết nối">
+            <font>
+                <Font name="Montserrat Medium" size="15.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

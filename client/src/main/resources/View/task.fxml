@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="672.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 3;" stylesheets="@../Style/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmt.client.Controller.TaskController">
+    <children>
+        <BorderPane prefHeight="282.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <AnchorPane prefHeight="65.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane fx:id="Exit" prefHeight="25.0" prefWidth="600.0" style="-fx-background-color: #B73E3E;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <HBox layoutX="-21.0" layoutY="-17.0" prefHeight="41.0" prefWidth="497.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                        <Label fx:id="Menu" layoutX="45.0" layoutY="26.0" prefHeight="38.0" prefWidth="111.0" text="MENU">
+                            <font>
+                                <Font name="Montserrat Black" size="17.0" />
+                            </font>
+                     <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/home_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                        </Label>
+                        <Label fx:id="MenuBack" layoutX="45.0" layoutY="28.0" prefHeight="35.0" prefWidth="98.0" text="MENU">
+                            <font>
+                                <Font name="Montserrat Black" size="17.0" />
+                            </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/home_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </top>
+            <left>
+                <AnchorPane fx:id="client" prefHeight="362.0" prefWidth="176.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FFD1D1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Pane prefHeight="24.0" prefWidth="176.0" />
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#dashboardOpen" prefHeight="59.0" prefWidth="176.0" styleClass="sidebarItem" text="  Dashboard" textFill="#674747">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="30.0" />
+                                    </padding>
+                                    <graphic>
+                                        <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                            <viewport>
+                                                <Rectangle2D />
+                                            </viewport>
+                                 <image>
+                                    <Image url="@../Image/scroll_48px.png" />
+                                 </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#applicationOpen" prefHeight="64.0" prefWidth="176.0" styleClass="sidebarItem" text="  Application" textFill="#674747">
+                                    <padding>
+                                        <Insets left="30.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="33.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                            <viewport>
+                                                <Rectangle2D />
+                                            </viewport>
+                                 <image>
+                                    <Image url="@../Image/opened_folder_48px.png" />
+                                 </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#processesOpen" prefHeight="59.0" prefWidth="176.0" styleClass="sidebarItem" text="  Processes" textFill="#674747">
+                                    <padding>
+                                        <Insets left="30.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                            <viewport>
+                                                <Rectangle2D />
+                                            </viewport>
+                                 <image>
+                                    <Image url="@../Image/services_48px.png" />
+                                 </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#screenshotOpen" prefHeight="60.0" prefWidth="176.0" styleClass="sidebarItem" text="  Screenshot" textFill="#674747">
+                                    <padding>
+                                        <Insets left="30.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="34.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                            <viewport>
+                                                <Rectangle2D />
+                                            </viewport>
+                                 <image>
+                                    <Image url="@../Image/picture_48px.png" />
+                                 </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#keyListenerOpen" prefHeight="61.0" prefWidth="176.0" styleClass="sidebarItem" text="  Key Listener" textFill="#674747">
+                                    <padding>
+                                        <Insets left="30.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="37.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                            <viewport>
+                                                <Rectangle2D />
+                                            </viewport>
+                                 <image>
+                                    <Image url="@../Image/unikey_64px.png" />
+                                 </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#shutdownOpen" prefHeight="67.0" prefWidth="176.0" styleClass="sidebarItem" text="  Shutdown" textFill="#674747">
+                                    <padding>
+                                        <Insets left="30.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                            <viewport>
+                                                <Rectangle2D />
+                                            </viewport>
+                                 <image>
+                                    <Image url="@../Image/padlock_48px.png" />
+                                 </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                            </children></VBox>
+                    </children>
+                </AnchorPane>
+            </left>
+            <center>
+                <AnchorPane prefHeight="297.0" prefWidth="407.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <StackPane fx:id="contentArea" layoutX="14.0" layoutY="14.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        </StackPane>
+                    </children>
+                </AnchorPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

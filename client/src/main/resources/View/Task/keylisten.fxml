@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmt.client.Controller.Task.KeylistenController">
+   <children>
+      <JFXButton layoutX="28.0" layoutY="242.0" onAction="#Start" text="Bắt đầu bắt phím" />
+      <JFXButton layoutX="287.0" layoutY="242.0" onAction="#End" text="Dừng bắt phím" />
+      <TextArea fx:id="writeHere" layoutX="28.0" layoutY="20.0" prefHeight="210.0" prefWidth="357.0" wrapText="true">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></TextArea>
+   </children>
+</AnchorPane>
