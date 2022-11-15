@@ -26,12 +26,12 @@ public class ApplicationController implements Initializable {
 
     @FXML
     private void openApp(ActionEvent actionEvent) {
-        handleSelect("Open App");
+        handleSelect("Open App", 1, allApp);
     }
 
     @FXML
     private void closeApp(ActionEvent actionEvent) {
-        handleSelect("Close App");
+        handleSelect("Close App", 0, runningApp);
     }
 
     @FXML
@@ -52,12 +52,12 @@ public class ApplicationController implements Initializable {
         new Thread(p).start();
     }
 
-    private void handleSelect(String msg) {
+    private void handleSelect(String msg, int index, TableView<String> table) {
         String param = null;
         try {
             ClientModel.getOutput().writeUTF(msg);
-            String selected = allApp.getSelectionModel().getSelectedItem();
-            param = selected.split(",")[1];
+            String selected = table.getSelectionModel().getSelectedItem();
+            param = selected.split(",")[index];
             System.out.println(param);
             ClientModel.getOutput().writeUTF(param);
 

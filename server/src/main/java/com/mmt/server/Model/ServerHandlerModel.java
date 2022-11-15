@@ -124,9 +124,11 @@ public class ServerHandlerModel implements Runnable {
             case ("End Process") -> {
                 stopProcess(param);
             }
+
             case ("Close App") -> {
                 stopApp(param);
             }
+
             case ("Start App")-> {
                 startApp(param);
             }
@@ -193,9 +195,9 @@ public class ServerHandlerModel implements Runnable {
     }
 
     private static void startApp(String param) throws Exception {
-        Process p = new ProcessBuilder("powershell",
-                "start",
-                param).start();
+        Process p = new ProcessBuilder("powershell.exe",
+                "\"start-process",
+                " -FilePath + param").start();
         p.waitFor();
         System.out.println("Done");
     }
