@@ -3,6 +3,7 @@ package com.mmt.client.Controller.Task;
 import com.mmt.client.Model.ClientModel;
 import com.mmt.client.Model.TableHandler;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
@@ -26,8 +27,21 @@ public class ProcessController implements Initializable {
         }
 
         // run on javafx thread
-        Platform.setImplicitExit(false);
         TableHandler p = new TableHandler(processTable);
         new Thread(p).start();
+    }
+
+    @FXML
+    private void endProcess(ActionEvent actionEvent) throws IOException{
+        String param = null;
+        try {
+            ClientModel.getOutput().writeUTF("End Process");
+            String selected = processTable.getSelectionModel().getSelectedItem();
+            param = selected.split(",")[1];
+            System.out.println(param);
+            ClientModel.getOutput().writeUTF(param);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

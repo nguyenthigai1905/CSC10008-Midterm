@@ -121,6 +121,16 @@ public class ServerHandlerModel implements Runnable {
                 listAllApp();
             }
 
+            case ("End Process") -> {
+                stopProcess(param);
+            }
+            case ("Close App") -> {
+                stopApp(param);
+            }
+            case ("Start App")-> {
+                startApp(param);
+            }
+
             default -> {
             }
         }
@@ -154,14 +164,7 @@ public class ServerHandlerModel implements Runnable {
 
     private static void listAllApp() throws Exception {
         Process p = new ProcessBuilder("powershell",
-                "\"get-wmiobject -Class Win32_Product | select Name | ConvertTo-CSV").start();
-//        Process p = new ProcessBuilder("powershell",
-//                "\"get-startapps | ? {$_.appid -match {\\.exe}} | ConvertTo-CSV").start();
-//        BufferedReader brErr = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-//        String s = null;
-//        while ((s = brErr.readLine()) != null) {
-//            System.out.println(s);
-//        }
+                "\"get-startapps | ? {$_.appid -match {\\.exe}} | ConvertTo-CSV").start();
         sendProcess(p);
         p.waitFor();
         System.out.println("Done");
@@ -171,6 +174,28 @@ public class ServerHandlerModel implements Runnable {
         Process p = new ProcessBuilder("powershell",
                 "\"gps| ? {$_.MainWindowTitle} | select Id, ProcessName, MainWindowTitle | ConvertTo-CSV").start();
         sendProcess(p);
+        p.waitFor();
+        System.out.println("Done");
+    }
+
+    private static void stopProcess(String param) throws Exception {
+        Process p = new ProcessBuilder("powershell.exe",
+                "taskkill /IM "+ param +".exe" +" /F").start();
+        p.waitFor();
+        System.out.println("Done");
+    }
+
+    private static void stopApp(String param) throws Exception {
+        Process p = new ProcessBuilder("powershell.exe",
+                "taskkill /IM "+ param +" /F").start();
+        p.waitFor();
+        System.out.println("Done");
+    }
+
+    private static void startApp(String param) throws Exception {
+        Process p = new ProcessBuilder("powershell",
+                "start",
+                param).start();
         p.waitFor();
         System.out.println("Done");
     }
@@ -190,21 +215,8 @@ public class ServerHandlerModel implements Runnable {
         }).start();
     }
 
-    static DataOutputStream getOutput() {
+    public static DataOutputStream getOutput() {
         return output;
-    }
-
-
-
-    private void stopProcess() {
-
-    }
-
-    private void stopApp() {
-
-    }
-
-    private void startApp() {
     }
 
 }

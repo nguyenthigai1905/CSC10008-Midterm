@@ -21,39 +21,48 @@ public class ApplicationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            ClientModel.getOutput().writeUTF("Show All App");
-            ClientModel.getOutput().writeUTF("0");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Platform.setImplicitExit(false);
-        TableHandler p = new TableHandler(allApp);
-        Platform.runLater(p);
+        handleSend("Show All App", allApp);
     }
 
     @FXML
     private void openApp(ActionEvent actionEvent) {
-
+        handleSelect("Open App");
     }
 
     @FXML
     private void closeApp(ActionEvent actionEvent) {
-
+        handleSelect("Close App");
     }
 
     @FXML
     private void showApp(ActionEvent actionEvent) {
+        handleSend("Show Running App", runningApp);
+    }
+
+    private void handleSend(String msg, TableView<String> table) {
         try {
-            ClientModel.getOutput().writeUTF("Show Running App");
+            ClientModel.getOutput().writeUTF(msg);
             ClientModel.getOutput().writeUTF("0");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         Platform.setImplicitExit(false);
-        TableHandler p = new TableHandler(runningApp);
+        TableHandler p = new TableHandler(table);
         new Thread(p).start();
+    }
+
+    private void handleSelect(String msg) {
+        String param = null;
+        try {
+            ClientModel.getOutput().writeUTF(msg);
+            String selected = allApp.getSelectionModel().getSelectedItem();
+            param = selected.split(",")[1];
+            System.out.println(param);
+            ClientModel.getOutput().writeUTF(param);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
