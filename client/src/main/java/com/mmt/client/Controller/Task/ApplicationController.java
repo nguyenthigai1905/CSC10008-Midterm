@@ -26,12 +26,34 @@ public class ApplicationController implements Initializable {
 
     @FXML
     private void openApp(ActionEvent actionEvent) {
-        handleSelect("Open App", 1, allApp);
+        String param = null;
+        try {
+            ClientModel.getOutput().writeUTF("Open App");
+            String selected = allApp.getSelectionModel().getSelectedItem();
+            param = selected.split(",")[1].replaceAll("\\\\", "/");
+            ClientModel.getOutput().writeUTF(param);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void closeApp(ActionEvent actionEvent) {
-        handleSelect("Close App", 0, runningApp);
+        String param = null;
+        try {
+            ClientModel.getOutput().writeUTF("Close App");
+
+            String selected = runningApp.getSelectionModel().getSelectedItem();
+            param = selected.split(",")[0];
+            System.out.println(param);
+
+            ClientModel.getOutput().writeUTF(param);
+            runningApp.getItems().removeAll(runningApp.getSelectionModel().getSelectedItem());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -47,22 +69,7 @@ public class ApplicationController implements Initializable {
             e.printStackTrace();
         }
 
-        Platform.setImplicitExit(false);
         TableHandler p = new TableHandler(table);
         new Thread(p).start();
-    }
-
-    private void handleSelect(String msg, int index, TableView<String> table) {
-        String param = null;
-        try {
-            ClientModel.getOutput().writeUTF(msg);
-            String selected = table.getSelectionModel().getSelectedItem();
-            param = selected.split(",")[index];
-            System.out.println(param);
-            ClientModel.getOutput().writeUTF(param);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

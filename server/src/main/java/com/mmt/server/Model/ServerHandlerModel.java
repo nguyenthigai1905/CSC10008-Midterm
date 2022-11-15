@@ -2,6 +2,7 @@ package com.mmt.server.Model;
 
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
+import javafx.scene.control.Alert;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -18,6 +19,8 @@ public class ServerHandlerModel implements Runnable {
     private static DataOutputStream output;
     private static BufferedOutputStream bufferedOutput;
     private static ServerKeyListener listener;
+
+    private static final Alert error = new Alert(Alert.AlertType.ERROR);
 
     private ServerHandlerModel() {
     }
@@ -74,6 +77,9 @@ public class ServerHandlerModel implements Runnable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            // create error alert
+            error.setTitle("Không thể thực hiện lệnh");
         }
     }
 
@@ -129,7 +135,7 @@ public class ServerHandlerModel implements Runnable {
                 stopApp(param);
             }
 
-            case ("Start App")-> {
+            case ("Open App")-> {
                 startApp(param);
             }
 
@@ -194,12 +200,22 @@ public class ServerHandlerModel implements Runnable {
         System.out.println("Done");
     }
 
-    private static void startApp(String param) throws Exception {
-        Process p = new ProcessBuilder("powershell.exe",
-                "\"start-process",
-                " -FilePath + param").start();
-        p.waitFor();
-        System.out.println("Done");
+    private static void startApp(String param) {
+        String appPath = param.substring(1, param.length()-1);
+        File file = new File(appPath);
+
+        if (file.exists()) {
+            try {
+                Process p = new ProcessBuilder(file.getAbsolutePath()).start();
+                p.waitFor();
+                System.out.println("Done");
+            } catch (Exception e) {
+               error.show();
+            }
+        } else {
+            System.out.println("File not Found");
+            error.show();
+        }
     }
 
     private static void sendProcess(Process p) {

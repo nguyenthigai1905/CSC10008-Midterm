@@ -6,21 +6,21 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmt.client.Controller.Task.ApplicationController">
    <children>
-      <TableView fx:id="allApp" layoutX="22.0" layoutY="226.0" prefHeight="176.0" prefWidth="375.0" />
-      <Button layoutX="415.0" layoutY="331.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="70.0" prefWidth="62.0" text="Tắt App">
+      <TableView fx:id="allApp" layoutX="15.0" layoutY="226.0" prefHeight="176.0" prefWidth="399.0" />
+      <Button layoutX="430.0" layoutY="190.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="55.0" prefWidth="52.0" text="Tắt App" wrapText="true">
          <font>
-            <Font size="14.0" />
+            <Font size="13.0" />
          </font>
       </Button>
-      <Button layoutX="415.0" layoutY="182.0" mnemonicParsing="false" onAction="#openApp" prefHeight="70.0" prefWidth="62.0" text="Mở App">
+      <Button layoutX="430.0" layoutY="346.0" mnemonicParsing="false" onAction="#openApp" prefHeight="55.0" prefWidth="52.0" text="Mở App" wrapText="true">
          <font>
-            <Font size="14.0" />
+            <Font size="13.0" />
          </font>
       </Button>
-      <TableView fx:id="runningApp" layoutX="22.0" layoutY="15.0" prefHeight="176.0" prefWidth="375.0" />
-      <Button layoutX="415.0" layoutY="15.0" mnemonicParsing="false" onAction="#showApp" prefHeight="106.0" prefWidth="62.0" text="Xem các App đang chạy" wrapText="true">
+      <TableView fx:id="runningApp" layoutX="15.0" layoutY="15.0" prefHeight="176.0" prefWidth="399.0" />
+      <Button layoutX="430.0" layoutY="15.0" mnemonicParsing="false" onAction="#showApp" prefHeight="122.0" prefWidth="52.0" text="Xem các App đang chạy" wrapText="true">
          <font>
-            <Font size="14.0" />
+            <Font size="13.0" />
          </font>
       </Button>
       <Label layoutX="131.0" layoutY="198.0" text="Bảng 1: Các App đang chạy">
@@ -28,7 +28,7 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="145.0" layoutY="412.0" text="Bảng 2: Tất cả các App">
+      <Label layoutX="142.0" layoutY="412.0" text="Bảng 2: Tất cả các App">
          <font>
             <Font size="13.0" />
          </font>

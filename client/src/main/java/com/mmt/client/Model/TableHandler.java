@@ -1,7 +1,9 @@
 package com.mmt.client.Model;
 
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -11,13 +13,13 @@ import java.util.List;
 
 public class TableHandler implements Runnable {
     private final TableView<String> table;
-
     public TableHandler(TableView<String> newTable) {
         this.table = newTable;
     }
 
     @Override
     public void run() {
+
         List<String> data = createData();
 
         /*
@@ -28,10 +30,20 @@ public class TableHandler implements Runnable {
         // get header from data
         String[] header = data.get(0).split(",");
 
+        // create row to check if table is empty or not
+        ObservableList<String> row = table.getItems();
+        if (row == null) {
+            table.getItems().clear();
+        }
+
         // for each header, create a tableColumn
         for (String column : header) {
+
             TableColumn<String, String> tableColumn = new TableColumn<>(column);
-            this.table.getColumns().add(tableColumn);
+
+            if (this.table.getColumns().isEmpty() || this.table.getColumns().size() != header.length) {
+                this.table.getColumns().add(tableColumn);
+            }
 
             tableColumn.setCellValueFactory(cellDataFeatures -> {
                 String value = cellDataFeatures.getValue();
@@ -40,7 +52,7 @@ public class TableHandler implements Runnable {
                 if (idx >= cells.length) {
                     return new SimpleStringProperty("");
                 } else {
-                    return new SimpleStringProperty(cells[idx]);
+                    return new SimpleStringProperty(cells[idx].substring(1, cells[idx].length() - 1));
                 }
             });
 
