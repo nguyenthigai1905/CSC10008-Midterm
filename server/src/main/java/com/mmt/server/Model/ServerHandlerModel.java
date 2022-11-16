@@ -79,7 +79,7 @@ public class ServerHandlerModel implements Runnable {
             }
 
             // create error alert
-            error.setTitle("Không thể thực hiện lệnh");
+            error.setTitle("Có lỗi xảy ra");
         }
     }
 
@@ -201,20 +201,12 @@ public class ServerHandlerModel implements Runnable {
     }
 
     private static void startApp(String param) {
-        String appPath = param.substring(1, param.length()-1);
-        File file = new File(appPath);
-
-        if (file.exists()) {
-            try {
-                Process p = new ProcessBuilder(file.getAbsolutePath()).start();
-                p.waitFor();
-                System.out.println("Done");
-            } catch (Exception e) {
-               error.show();
-            }
-        } else {
-            System.out.println("File not Found");
-            error.show();
+        try {
+            Process p = Runtime.getRuntime().exec(new String[] {"powershell", param});
+            p.waitFor();
+            System.out.println("Done");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

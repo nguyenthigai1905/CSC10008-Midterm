@@ -26,13 +26,23 @@ public class ApplicationController implements Initializable {
 
     @FXML
     private void openApp(ActionEvent actionEvent) {
-        String param = null;
         try {
             ClientModel.getOutput().writeUTF("Open App");
-            String selected = allApp.getSelectionModel().getSelectedItem();
-            param = selected.split(",")[1].replaceAll("\\\\", "/");
-            ClientModel.getOutput().writeUTF(param);
 
+            String selected = allApp.getSelectionModel().getSelectedItem();
+
+            String appPath = selected.split(",")[1].replaceAll("\\\\", "/");
+            String param = appPath.substring(1, appPath.length()-1);
+
+            if (param.startsWith("{")) {
+                while (param.contains("/")) {
+                    int idx = param.indexOf("/");
+                    param = param.substring(idx+1);
+                }
+            }
+
+            System.out.println(param);
+            ClientModel.getOutput().writeUTF(param);
         } catch (IOException e) {
             e.printStackTrace();
         }
