@@ -2,7 +2,6 @@ package com.mmt.client.Controller.Task;
 
 import com.mmt.client.Model.ClientModel;
 import com.mmt.client.Model.TableHandler;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,7 +31,7 @@ public class ProcessController implements Initializable {
     }
 
     @FXML
-    private void endProcess(ActionEvent actionEvent) throws IOException{
+    private void endProcess(ActionEvent actionEvent) throws IOException {
         String param = null;
         try {
             ClientModel.getOutput().writeUTF("End Process");

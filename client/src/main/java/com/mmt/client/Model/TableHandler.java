@@ -1,6 +1,5 @@
 package com.mmt.client.Model;
 
-import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +12,7 @@ import java.util.List;
 
 public class TableHandler implements Runnable {
     private final TableView<String> table;
+
     public TableHandler(TableView<String> newTable) {
         this.table = newTable;
     }

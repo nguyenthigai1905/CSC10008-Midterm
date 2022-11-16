@@ -2,7 +2,6 @@ package com.mmt.client.Controller.Task;
 
 import com.mmt.client.Model.ClientModel;
 import com.mmt.client.Model.TableHandler;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,12 +31,12 @@ public class ApplicationController implements Initializable {
             String selected = allApp.getSelectionModel().getSelectedItem();
 
             String appPath = selected.split(",")[1].replaceAll("\\\\", "/");
-            String param = appPath.substring(1, appPath.length()-1);
+            String param = appPath.substring(1, appPath.length() - 1);
 
             if (param.startsWith("{")) {
                 while (param.contains("/")) {
                     int idx = param.indexOf("/");
-                    param = param.substring(idx+1);
+                    param = param.substring(idx + 1);
                 }
             }
 

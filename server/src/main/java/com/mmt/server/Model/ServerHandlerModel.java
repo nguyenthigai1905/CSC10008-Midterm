@@ -11,6 +11,7 @@ import java.io.*;
 import java.net.Socket;
 
 public class ServerHandlerModel implements Runnable {
+    private static final Alert error = new Alert(Alert.AlertType.ERROR);
     private static ServerHandlerModel model;
     private static Socket socket;
     private static String command;
@@ -20,40 +21,7 @@ public class ServerHandlerModel implements Runnable {
     private static BufferedOutputStream bufferedOutput;
     private static ServerKeyListener listener;
 
-    private static final Alert error = new Alert(Alert.AlertType.ERROR);
-
     private ServerHandlerModel() {
-    }
-
-    @Override
-    public void run() {
-        while (ServerModel.isConnect()) {
-            // try to read input stream
-            try {
-                command = input.readUTF();
-                System.out.println(command);
-                param = input.readUTF();
-                System.out.println(param);
-            } catch (IOException e) {
-                ServerModel.isConnected = false;
-                // try to close socket
-                try {
-                    socket.close();
-                    ServerModel.getServer().close();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                // exit program
-                System.exit(0);
-            }
-
-            // try to do command
-            try {
-                handleCommand(command, param);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
     }
 
     public static void create() {
@@ -135,7 +103,7 @@ public class ServerHandlerModel implements Runnable {
                 stopApp(param);
             }
 
-            case ("Open App")-> {
+            case ("Open App") -> {
                 startApp(param);
             }
 
@@ -188,21 +156,21 @@ public class ServerHandlerModel implements Runnable {
 
     private static void stopProcess(String param) throws Exception {
         Process p = new ProcessBuilder("powershell.exe",
-                "taskkill /IM "+ param +".exe" +" /F").start();
+                "taskkill /IM " + param + ".exe" + " /F").start();
         p.waitFor();
         System.out.println("Done");
     }
 
     private static void stopApp(String param) throws Exception {
         Process p = new ProcessBuilder("powershell.exe",
-                "taskkill /IM "+ param +" /F").start();
+                "taskkill /IM " + param + " /F").start();
         p.waitFor();
         System.out.println("Done");
     }
 
     private static void startApp(String param) {
         try {
-            Process p = Runtime.getRuntime().exec(new String[] {"powershell", param});
+            Process p = Runtime.getRuntime().exec(new String[]{"powershell", param});
             p.waitFor();
             System.out.println("Done");
         } catch (Exception e) {
@@ -227,6 +195,37 @@ public class ServerHandlerModel implements Runnable {
 
     public static DataOutputStream getOutput() {
         return output;
+    }
+
+    @Override
+    public void run() {
+        while (ServerModel.isConnect()) {
+            // try to read input stream
+            try {
+                command = input.readUTF();
+                System.out.println(command);
+                param = input.readUTF();
+                System.out.println(param);
+            } catch (IOException e) {
+                ServerModel.isConnected = false;
+                // try to close socket
+                try {
+                    socket.close();
+                    ServerModel.getServer().close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                // exit program
+                System.exit(0);
+            }
+
+            // try to do command
+            try {
+                handleCommand(command, param);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 }

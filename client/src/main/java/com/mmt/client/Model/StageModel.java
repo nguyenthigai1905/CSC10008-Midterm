@@ -15,15 +15,14 @@ import java.util.Objects;
 
 
 public class StageModel {
+    // set scene with label for changing scene (use hashmap because it will have key: lable and value: scene)
+    private static final HashMap<String, SceneModel> sceneInstance = new HashMap<>();
     // main stage
     private static Stage mainStage;
     // main stage model (apply singleton Pattern)
     private static StageModel mainModel;
-
     // current scene
     private static SceneModel currentScene;
-    // set scene with label for changing scene (use hashmap because it will have key: lable and value: scene)
-    private static final HashMap<String, SceneModel> sceneInstance = new HashMap<>();
 
     // constructor
     private StageModel() {

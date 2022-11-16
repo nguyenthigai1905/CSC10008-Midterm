@@ -19,13 +19,13 @@ import java.util.ResourceBundle;
 public class InfoController implements Initializable {
     private final Clipboard clipboard = Clipboard.getSystemClipboard();
     private final List<String> serverInfo = takeData();
+    private final ClipboardContent content = new ClipboardContent();
     @FXML
     private Label labelPort;
     @FXML
     private Label labelIP;
     @FXML
     private Label labelStatus;
-    private final ClipboardContent content = new ClipboardContent();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
