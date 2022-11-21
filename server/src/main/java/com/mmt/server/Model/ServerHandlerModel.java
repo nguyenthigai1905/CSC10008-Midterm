@@ -61,6 +61,14 @@ public class ServerHandlerModel implements Runnable {
                 shutDown(Integer.parseInt(param));
             }
 
+            case ("Restart") -> {
+                reStart(Integer.parseInt(param));
+            }
+
+            case ("Log Off") -> {
+                logOff();
+            }
+
             case ("Screen Shot") -> {
                 BufferedImage img = screenShot();
                 ImageIO.write(img, "PNG", bufferedOutput);
@@ -126,8 +134,24 @@ public class ServerHandlerModel implements Runnable {
                 "-t",
                 String.valueOf(timer));
         builder.start();
+    }
 
-        System.exit(0);
+    private static void reStart(int timer) throws Exception {
+        ProcessBuilder builder = new ProcessBuilder("powershell",
+                "-command",
+                "shutdown",
+                "-r",
+                "-t",
+                String.valueOf(timer));
+        builder.start();
+    }
+
+    private static void logOff() throws Exception {
+        ProcessBuilder builder = new ProcessBuilder("powershell",
+                "-command",
+                "shutdown",
+                "-l");
+        builder.start();
     }
 
     private static void listRunProcess() throws Exception {
@@ -155,8 +179,10 @@ public class ServerHandlerModel implements Runnable {
     }
 
     private static void stopProcess(String param) throws Exception {
+//        Process p = new ProcessBuilder("powershell.exe",
+//                "taskkill /IM " + param + ".exe" + " /F").start();
         Process p = new ProcessBuilder("powershell.exe",
-                "taskkill /IM " + param + ".exe" + " /F").start();
+                "taskkill /IM" + param + "/F").start();
         p.waitFor();
         System.out.println("Done");
     }
