@@ -73,7 +73,7 @@ public class StageModel {
         mainStage.show();
     }
 
-    private static FXMLLoader loadFXML(String fxml) throws IOException {
+    private static FXMLLoader loadFXML(String fxml) {
         return new FXMLLoader(Main.class.getResource("/View/" + fxml));
     }
 

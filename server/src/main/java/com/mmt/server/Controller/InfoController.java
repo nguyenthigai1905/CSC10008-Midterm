@@ -47,7 +47,7 @@ public class InfoController implements Initializable {
     }
 
     @FXML
-    private void openServer(ActionEvent actionEvent) throws IOException {
+    private void openServer(ActionEvent actionEvent) {
         if (!ServerModel.isConnect()) {
             // connect to socket and set status
             ServerModel.connect();
