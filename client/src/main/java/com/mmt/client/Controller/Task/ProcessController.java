@@ -37,7 +37,7 @@ public class ProcessController implements Initializable {
             ClientModel.getOutput().writeUTF("End Process");
 
             String selected = processTable.getSelectionModel().getSelectedItem();
-            param = selected.split(",")[1];
+            param = selected.split(",")[0];
             System.out.println(param);
 
             ClientModel.getOutput().writeUTF(param);

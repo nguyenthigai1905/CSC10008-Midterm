@@ -179,8 +179,6 @@ public class ServerHandlerModel implements Runnable {
     }
 
     private static void stopProcess(String param) throws Exception {
-//        Process p = new ProcessBuilder("powershell.exe",
-//                "taskkill /IM " + param + ".exe" + " /F").start();
         Process p = new ProcessBuilder("powershell.exe",
                 "taskkill /IM" + param + "/F").start();
         p.waitFor();
