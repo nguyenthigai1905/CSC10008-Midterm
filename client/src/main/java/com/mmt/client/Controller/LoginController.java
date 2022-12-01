@@ -33,7 +33,7 @@ public class LoginController implements Initializable {
     @FXML
     private void clickLogin(ActionEvent actionEvent) {
         String name = textName.getText();
-        Integer port = Integer.parseInt(textPort.getText());
+        int port = Integer.parseInt(textPort.getText());
 
         try {
             ClientModel.create(name, port);

@@ -55,17 +55,6 @@ public final class ServerModel {
         }
     }
 
-    public static void close() {
-        try {
-            // close client
-            client.close();
-            // close server
-            server.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public static ServerSocket getServer() {
         return server;
     }

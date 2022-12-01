@@ -1,7 +1,7 @@
 package com.mmt.client.Controller.Task;
 
 import com.mmt.client.Model.ClientModel;
-import com.mmt.client.Model.TableHandler;
+import com.mmt.client.Model.TableHandlerModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -78,7 +78,7 @@ public class ApplicationController implements Initializable {
             e.printStackTrace();
         }
 
-        TableHandler p = new TableHandler(table);
+        TableHandlerModel p = new TableHandlerModel(table);
         new Thread(p).start();
     }
 }

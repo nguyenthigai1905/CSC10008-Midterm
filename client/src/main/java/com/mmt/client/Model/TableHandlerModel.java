@@ -10,10 +10,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TableHandler implements Runnable {
+public class TableHandlerModel implements Runnable {
     private final TableView<String> table;
 
-    public TableHandler(TableView<String> newTable) {
+    public TableHandlerModel(TableView<String> newTable) {
         this.table = newTable;
     }
 

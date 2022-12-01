@@ -1,7 +1,7 @@
 package com.mmt.client.Controller.Task;
 
 import com.mmt.client.Model.ClientModel;
-import com.mmt.client.Model.TableHandler;
+import com.mmt.client.Model.TableHandlerModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -26,7 +26,7 @@ public class ProcessController implements Initializable {
         }
 
         // run on javafx thread
-        TableHandler p = new TableHandler(processTable);
+        TableHandlerModel p = new TableHandlerModel(processTable);
         new Thread(p).start();
     }
 

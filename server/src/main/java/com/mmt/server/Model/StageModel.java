@@ -13,12 +13,17 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
 
+/*
+Author: Marco Trombino
+Link: https://github.com/Marcotrombino/FXRouter
+ */
+
 public class StageModel {
     // set scene with label for changing scene (use hashmap because it will have key: lable and value: scene)
     private static final HashMap<String, SceneModel> sceneInstance = new HashMap<>();
     // main stage
     private static Stage mainStage;
-    // main stage model (apply singleton Pattern)
+    // main stage model
     private static StageModel mainModel;
     // current scene
     private static SceneModel currentScene;

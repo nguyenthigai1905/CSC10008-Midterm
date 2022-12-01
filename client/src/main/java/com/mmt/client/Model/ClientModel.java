@@ -20,7 +20,7 @@ public class ClientModel {
     private ClientModel() {
     }
 
-    public static void create(String serverIP, Integer serverPort) throws IOException {
+    public static void create(String serverIP, int serverPort) throws IOException {
         if (model == null) {
             model = new ClientModel();
 
