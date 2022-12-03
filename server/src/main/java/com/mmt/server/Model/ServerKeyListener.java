@@ -10,12 +10,6 @@ public class ServerKeyListener implements NativeKeyListener {
     public ServerKeyListener() {
     }
 
-    public void nativeKeyPressed(NativeKeyEvent e) {
-    }
-
-    public void nativeKeyReleased(NativeKeyEvent e) {
-    }
-
     public void nativeKeyTyped(NativeKeyEvent e) {
         try {
             String key = String.valueOf(e.getKeyChar());
